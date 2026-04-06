@@ -1,0 +1,755 @@
+<html><head>
+     <!-- this is the font for the website, the code is grabbed from google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&amp;display=swap" rel="stylesheet">  
+    <title>Settings</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black; /* black background will make blur border blac */
+        font-family: 'Jersey 10', sans-serif;
+        font-weight: none;
+        text-shadow: 0.33vw 0.33vw 0.3vw black, -0.33vw 0.33vw 0.3vw black, -0.33vw -0.33vw 0.3vw black, 0.33vw -0.33vw 0.3vw black;
+       
+        }
+       
+         h1 {
+            position: fixed;
+            text-align: center;
+            font-size: 6vw;
+            color: white;
+            top: -1%;
+            left: 47.5%;
+            letter-spacing: 0.42vw;
+            animation-name: rotateTitle;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            z-index: 2;
+        }
+       
+        h2 {
+            position: relative;
+            text-align: center;
+            font-size: 4vw;
+            color: white;
+            margin-top: -3.3vw;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: -1.1vw;
+            letter-spacing: 0.2vw;
+            z-index: 2;
+        }
+       
+         h3 {
+            position: relative;
+            text-align: center;
+            font-size: 2.3vw;
+            color: white;
+            margin-top: 0vw;
+            margin-bottom: 1.5vw;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.1vw;
+            z-index: 1;
+            background-color: rgba(0,0,0,0.3);
+            outline: 1vw solid rgba(0,0,0,0.5);
+        }
+        
+        .p3 {
+            position: relative;
+            text-align: center;
+            font-size: 2.3vw;
+            color: white;
+            margin-top: 0vw;
+            margin-bottom: 1.5vw;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.1vw;
+            z-index: 1;
+            background-color: rgba(0,0,0,0.3);
+            outline: 1vw solid rgba(0,0,0,0.5);
+        }
+        
+        h4 {
+            position: relative;
+            text-align: center;
+            font-size: 2.3vw;
+            color: white;
+            margin-top: 1vw;
+            margin-bottom: 1.5vw;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.1vw;
+            z-index: 1;
+            background-color: rgba(0,0,0,0.3);
+            outline: 1vw solid rgba(0,0,0,0.5);
+        }
+        
+        h5 {
+            position: relative;
+            text-align: center;
+            font-size: 0.2vw;
+            color: white;
+            margin-top: 1vw;
+            margin-bottom: 1.5vw;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.02vw;
+            z-index: 1;
+            background-color: rgba(0,0,0,0);
+            outline: 1vw solid rgba(0,0,0,0);
+        }
+
+         .p6 {
+           position: absolute;
+            text-align: center;
+            font-size: 4.5vw;
+            color: rgba(230,0,0,1);
+            top: 6.75vh;
+            height: 22.5%;
+            bottom: 7.5vh;
+            left: 60%;
+            letter-spacing: 0.1vw;
+            z-index: 1;
+            background-color: rgba(0,0,0,0);
+            outline: 1vw solid rgba(0,0,0,0);
+            transition: margin-left 0.4s ease;
+         }
+         
+         .p6.active {
+           left: 62.5%;
+           color: rgba(255,255,255,1);
+           transition: margin-left 0.4s ease;
+         }
+
+       
+        @keyframes rotateTitle {
+             0% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+           
+            100% {
+                transform: rotate(-5deg);
+            }
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+         display: block;
+         width: 100%;
+         height: 100%;
+       image-rendering: pixelated;
+       background-color: rgba(200,0,0,1);
+z-index: 1;
+        }
+       
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+         display: block;
+           width: 15%;
+           height: 100%;
+           background-color: rgba(0, 0, 0, 0.5);
+         z-index: 1;
+        }
+
+        .bordersidebar {
+           position: fixed;
+            top: 0;
+            left: 15.5%;
+         display: block;
+         width: 1%;
+         height: 100%;
+         /* filter: blur(7px); disabled to make background pixelated for asthetic */
+       background-color: rgba(0, 0, 0, 1);
+   z-index: 1;
+        }
+
+        .bordersidebar2 {
+           position: fixed;
+            top: 0;
+            left: 15%;
+         display: block;
+         width: 0.5%;
+         height: 100%;
+         /* filter: blur(7px); disabled to make background pixelated for asthetic */
+       background-color: rgba(0, 0, 0, 0.733);
+   z-index: 1;
+        }
+       
+       
+        .settingsbutton {
+            margin-top: 2vw;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            background-image: url("https://raw.githubusercontent.com/arturo267/arturo267.github.io/refs/heads/main/Images/gearmodel3.png");
+            opacity: 0.5;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 9vw;
+            width: 9vw;
+            border: none;
+            outline: none;
+            background-color: rgba(0,0,0,0);
+            transition: opacity 0.3s ease, transform 1s ease;
+        }
+       
+        .homebutton {
+            margin-top: 2vw;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            background-image: url("https://raw.githubusercontent.com/arturo267/arturo267.github.io/refs/heads/main/Images/controller.png");
+            opacity: 0.5;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 9vw;
+            width: 9vw;
+            border: none;
+            outline: none;
+            background-color: rgba(0,0,0,0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+       
+        .proxybutton {
+            margin-top: 2vw;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            background-image: url("https://raw.githubusercontent.com/arturo267/arturo267.github.io/refs/heads/main/Images/globepixel.png");
+            opacity: 0.5;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 9vw;
+            width: 9vw;
+            border: none;
+            outline: none;
+            background-color: rgba(0,0,0,0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+       
+        .infobutton {
+            margin-top: 2vw;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            background-image: url("https://raw.githubusercontent.com/arturo267/arturo267.github.io/refs/heads/main/Images/New%20Project.png");
+            opacity: 0.5;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 9vw;
+            width: 9vw;
+            border: none;
+            outline: none;
+            background-color: rgba(0,0,0,0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+       
+        .homebutton:hover {
+             opacity: 0.7;
+             transform: scale(1.1);
+        }
+
+        .homebutton:active{
+              opacity: 1;
+             transform: scale(1.3);
+        }
+       
+        .infobutton:hover {
+             opacity: 0.7;
+             transform: scale(1.1);
+        }
+
+        .infobutton:active{
+              opacity: 1;
+             transform: scale(1.3);
+        }
+       
+        .proxybutton:hover {
+             opacity: 0.7;
+             transform: scale(1.1);
+        }
+
+        .proxybutton:active{
+              opacity: 1;
+             transform: scale(1.3);
+        }
+       
+        .settingsbutton:hover {
+            opacity: 0.7;
+            transform: scale(1.1) rotate(180deg);
+        }
+
+        .settingsbutton:active{
+              opacity: 1;
+              transition: opacity 0.3s ease, transform 0.3s ease;
+              transform: scale(1.3) rotate(180deg);
+        }
+       
+        .slidercon {
+          position: fixed;
+          top: 25%;
+          left: 25%;
+          display: block;
+          width: 65%;
+          height: 65%;
+          background-color: rgba(0, 0, 0, 0);
+          z-index: 1;
+        }
+       
+        .smallerslidercon {
+          float: left;
+          margin-left: 1.6666%;
+          margin-right: 1.6666%;
+          position: relative;
+          width: 30%;
+          height: 100%;
+          outline:1vw solid black;
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .sliderbarBG {
+          -webkit-appearance: none;
+          width: 50%;
+          margin-bottom: 3.5%;
+          margin-left: 3%;
+          height: 10%;
+          background: rgba(0,0,0,0.5);
+          outline: solid black;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+       
+        .sliderbarBG::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 10%;
+          height: 100%;
+          z-index: 2;
+          background: #ffffff;
+          outline: solid black;
+          cursor: pointer;
+        }
+       
+        .sliderbarBG::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          background: #04AA6D;
+          cursor: pointer;
+          margin-top: 0vw;
+        } 
+        
+        .sliderbarBG:hover {
+          opacity: 1;
+        }
+        
+        .rgbsquareGrid {
+          position: relative;
+          width: 100%;
+          height: 33%;
+          margin-top: 2%;
+          background-color: rgba(0,0,0,0.3);
+        }
+        
+        .rgbsquareGrid2 {
+          position: relative;
+          width: 100%;
+          height: 24.5%;
+          margin-top: 2%;
+          background-color: rgba(0,0,0,0.3);
+        }
+
+        .divh5 {
+          position: absolute;
+          background-color: rgba(255,255,255,1);
+          outline: 0.5vw solid black;
+          height: 45%;
+          width: 7vw;
+          top: 4.2vw;
+          left: 11.5vw;
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+          position: absolute;
+          display: inline-block;
+          width: 40%;
+          left: 7.5%;
+          top: 9vh;
+          height: 22.5%;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        /* The slider */
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          outline: 0.25vw solid black;
+          background-color: #750000;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 120%;
+          width: 40%;
+          left: 0;
+          bottom: -10%;
+          outline: 0.25vw solid black;
+          background-color: rgb(255, 255, 255);
+         -webkit-transition: .4s;
+         transition: .4s;
+        }
+
+        input:checked + .slider {
+         background-color: #1eff00;
+        }
+        
+        input:focus + .slider {
+          box-shadow: 0 0 1px #000000;
+        }
+        
+        input:checked + .slider:before {
+          -webkit-transform: translateX(150%);
+          -ms-transform: translateX(150%);
+         transform: translateX(150%);
+        }
+        
+        /* search container */
+        
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 10px 0;
+            background-color: rgba(0,0,0,0.5);
+            color: rgb(255, 255, 255);
+            padding: 0;  
+            position: absolute;
+            left: 5%;
+            top: 48%;
+            text-align: center;
+            text-decoration: none;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            font-size: 2.5vw; 
+            margin: 0vw 0vw; 
+            cursor: pointer;
+            border-radius: 0px;
+            border: 0.5vw solid rgba(0,0,0,0.5); 
+            width: 90%;  
+            height: 40%; 
+            font-family: 'Jersey 10', sans-serif; 
+            font-weight: normal;
+            text-shadow: 0.17vw 0.17vw 0.33vw rgba(0, 0, 0, 0.5), -0.17vw -0.17vw 0.33vw rgb(0, 0, 0, 0.5), 0.17vw -0.17vw 0.33vw rgb(0, 0, 0), -0.17vw 0.17vw 0.33vw rgb(0, 0, 0);
+            z-index: 3;
+        }
+
+        .search-bar-container {
+            display: flex;
+            justify-content: flex-start; /* or center or space-between depending on layout */
+            align-items: center; /* ensures both bars are on the same Y level */
+            gap: 1vw; /* spacing between bars */
+            margin: 10px; /* optional */
+            z-index: 5;
+        }   
+
+        input[type="text"].search-bar:focus {
+            outline: none; /* Remove the default outline on focus */
+        }
+    </style>
+  </head>
+  <body>
+    <canvas id="mycanvas"></canvas>
+    <div>
+      <h1>Settings</h1>
+      <div class="slidercon">
+        <div class="smallerslidercon">
+          <h2>Colors</h2>
+          <div class="rgbsquareGrid">
+            <h3>Background color 1</h3>
+            <div id="colorBG1" class="divh5"></div>
+            <input type="range" min="0" max="255" value="0" class="sliderbarBG" id="BGR1">
+            <input type="range" min="0" max="255" value="0" class="sliderbarBG" id="BGG1">
+            <input type="range" min="0" max="255" value="0" class="sliderbarBG" id="BGB1">
+          </div>
+          
+          <div class="rgbsquareGrid">
+            <h3>Background color 2</h3>
+            <div class="divh5" id="colorBG2"></div>
+            <input type="range" min="0" max="255" value="0" class="sliderbarBG" id="BGR2">
+            <input type="range" min="0" max="255" value="0" class="sliderbarBG" id="BGG2">
+            <input type="range" min="0" max="255" value="0" class="sliderbarBG" id="BGB2">
+          </div>
+          
+          <div class="rgbsquareGrid">
+            <h3>Interpolation color</h3>
+            <div class="divh5" id="colorBG3"></div>
+            <input type="range" min="0" max="255" value="0" class="sliderbarBG" id="BGR3">
+            <input type="range" min="0" max="255" value="0" class="sliderbarBG" id="BGG3">
+            <input type="range" min="0" max="255" value="0" class="sliderbarBG" id="BGB3">
+          </div>
+        </div>
+        <div class="smallerslidercon">
+          <h2>Style</h2>
+          <div class="rgbsquareGrid2">
+             <div class="p3">Smooth background</div>
+            <div class = "p6" id = "smoothTextChecker">OFF</div>
+            <label class="switch">
+            <input type="checkbox" id = "SmoothBGCheck" onclick = "togleSmooth()">
+            <span class="slider"></span>
+            </label>
+          </div>
+          <div class="rgbsquareGrid2">
+            <div class="p3">Wave Size</div>
+            <div class="search-bar-container" id="waveTextBoxparent" >
+              <input type="text" id="waveTextBox" class="search-bar" placeholder="Select Size..." onkeyup="SizeChange()">
+            </div>
+            </label>
+          </div>
+          <div class="rgbsquareGrid2">
+             <div class="p3">Wave Speed</div>
+            <div class="search-bar-container" id="waveTextBoxparent" >
+              <input type="text" id="waveSpeedTextBox" class="search-bar" placeholder="Select Size..." onkeyup="SpeedChange()">
+            </div>
+          </div>
+          <div class="rgbsquareGrid2">
+             <div class="p3">Wave Quality</div>
+            <div class="search-bar-container" id="waveTextBoxparent" >
+              <input type="text" id="waveQualityTextBox" class="search-bar" placeholder="Select Size..." onkeyup="QualityChange()">
+            </div>
+          </div>
+        </div>
+        <div class="smallerslidercon">
+          <h2>Preferences</h2>
+          <h3>Game settings</h3>
+        </div>
+     
+        <div class="sidebar">
+            <button id="gamesButtonID" class="homebutton"></button>
+            <button id="proxyButtonID" class="proxybutton"></button>
+            <button id="settingsButtonID" class="settingsbutton"></button>
+            <button id="infoButtonID" class="infobutton"></button>
+        </div>
+      <div class="bordersidebar"></div>
+      <div class="bordersidebar2"></div>
+   <script src ="js/startup.js"></script>
+    <script src="js/perlinpro.js"></script>  
+    <script>
+
+      // reference the HTML code
+      
+      var sliderBGR1 = document.getElementById("BGR1");
+      var sliderBGG1 = document.getElementById("BGG1");
+      var sliderBGB1 = document.getElementById("BGB1");
+      var output1 = document.getElementById("colorBG1");
+      
+      var sliderBGR2 = document.getElementById("BGR2");
+      var sliderBGG2 = document.getElementById("BGG2");
+      var sliderBGB2 = document.getElementById("BGB2");
+      var output2 = document.getElementById("colorBG2");
+      
+      var sliderBGR3 = document.getElementById("BGR3");
+      var sliderBGG3 = document.getElementById("BGG3");
+      var sliderBGB3 = document.getElementById("BGB3");
+      var output3 = document.getElementById("colorBG3");
+      
+      var wavetextbox = document.getElementById("waveTextBox")
+      var waveSpeedtextbox = document.getElementById("waveSpeedTextBox")
+      var waveQualitytextbox = document.getElementById("waveQualityTextBox")
+      var smoothChecker = document.getElementById("SmoothBGCheck");
+      var smoothTextChecker = document.getElementById("smoothTextChecker");
+      
+      //local storage get colors
+      
+      var R1 = localStorage.getItem("R1");
+      var G1 = localStorage.getItem("G1");
+      var B1 = localStorage.getItem("B1");
+      
+      var R2 = localStorage.getItem("R2");
+      var G2 = localStorage.getItem("G2");
+      var B2 = localStorage.getItem("B2");
+      
+      var R3 = localStorage.getItem("R3");
+      var G3 = localStorage.getItem("G3");
+      var B3 = localStorage.getItem("B3");
+      
+      var WaveSize = localStorage.getItem("WaveSize")
+      var WaveSpeed = localStorage.getItem("WaveSpeed")
+      var WaveQuality = localStorage.getItem("WaveQuality")
+      
+      wavetextbox.placeholder = WaveSize
+      waveSpeedtextbox.placeholder = WaveSpeed
+      waveQualitytextbox.placeholder = WaveQuality
+      // set BG colors
+      
+      output1.style.backgroundColor = "rgba("+R1+","+G1+","+B1+",1)";
+      output2.style.backgroundColor = "rgba("+R2+","+G2+","+B2+",1)";
+      output3.style.backgroundColor = "rgba("+R3+","+G3+","+B3+",1)";
+      
+      // set slider values
+      
+      sliderBGR1.value = R1;
+      sliderBGG1.value = G1;
+      sliderBGB1.value = B1;
+      
+      sliderBGR2.value = R2;
+      sliderBGG2.value = G2;
+      sliderBGB2.value = B2;
+      
+      sliderBGR3.value = R3;
+      sliderBGG3.value = G3;
+      sliderBGB3.value = B3;
+      
+      // first RGB
+      
+      function SizeChange() {
+        var txt = wavetextbox.value
+        
+        wavetextbox.placeholder = txt
+        localStorage.setItem("WaveSize", txt)
+      }
+      
+      function SpeedChange() {
+        var txt = waveSpeedtextbox.value
+        
+        waveSpeedtextbox.placeholder = txt
+        localStorage.setItem("WaveSpeed", txt)
+      }
+      
+      function QualityChange() {
+        var txt = waveQualitytextbox.value
+        
+        waveQualitytextbox.placeholder = txt
+        localStorage.setItem("WaveQuality", txt)
+      }
+
+      function togleSmooth() {
+        // if the checkbox is checked, display the output text
+        if (smoothChecker.checked == true){
+          smoothTextChecker.textContent = "ON";
+          smoothTextChecker.classList.toggle('active');
+          localStorage.setItem("SmoothBG", "true")
+        } else {
+          smoothTextChecker.classList.toggle('active');
+          localStorage.setItem("SmoothBG", "false")
+          smoothTextChecker.textContent = "OFF";
+        }
+      };
+
+      let bool = localStorage.getItem("SmoothBG")
+      if (bool === "true") {
+        smoothChecker.checked = true
+        smoothTextChecker.textContent = "ON";
+        smoothTextChecker.classList.toggle('active');
+      } else {
+         smoothChecker.checked = false
+        smoothTextChecker.textContent = "OFF";
+      };
+      
+      sliderBGR1.oninput = function() {
+        R1 = this.value;
+        localStorage.setItem('R1', this.value);
+        output1.style.backgroundColor = "rgba("+R1+","+G1+","+B1+",1)";
+         // window.location.reload();
+      };
+      
+      sliderBGG1.oninput = function() {
+        G1 = this.value;
+        localStorage.setItem('G1', this.value);
+        output1.style.backgroundColor = "rgba("+R1+","+G1+","+B1+",1)";
+          // window.location.reload();
+      };
+      
+      sliderBGB1.oninput = function() {
+        B1 = this.value;
+        localStorage.setItem('B1', this.value);
+        output1.style.backgroundColor = "rgba("+R1+","+G1+","+B1+",1)";
+           //window.location.reload();
+      };
+      
+      // Second RGB
+      
+      sliderBGR2.oninput = function() {
+        R2 = this.value;
+        localStorage.setItem('R2', this.value);
+        output2.style.backgroundColor = "rgba("+R2+","+G2+","+B2+",1)";
+          // window.location.reload();
+      };
+      
+      sliderBGG2.oninput = function() {
+        G2 = this.value;
+        localStorage.setItem('G2', this.value);
+        output2.style.backgroundColor = "rgba("+R2+","+G2+","+B2+",1)";
+          // window.location.reload();
+      };
+      
+      sliderBGB2.oninput = function() {
+        B2 = this.value;
+        localStorage.setItem('B2', this.value);
+        output2.style.backgroundColor = "rgba("+R2+","+G2+","+B2+",1)";
+         //  window.location.reload();
+      };
+      
+      // Third RGB 
+      
+      sliderBGR3.oninput = function() {
+        R3 = this.value;
+        localStorage.setItem('R3', this.value);
+        output3.style.backgroundColor = "rgba("+R3+","+G3+","+B3+",1)";
+         //  window.location.reload();
+      };
+      
+      sliderBGG3.oninput = function() {
+        G3 = this.value;
+        localStorage.setItem('G3', this.value);
+        output3.style.backgroundColor = "rgba("+R3+","+G3+","+B3+",1)";
+          // window.location.reload();
+      };
+      
+      sliderBGB3.oninput = function() {
+        B3 = this.value;
+        localStorage.setItem('B3', this.value);
+        output3.style.backgroundColor = "rgba("+R3+","+G3+","+B3+",1)";
+          // window.location.reload();
+      };
+      
+      document.getElementById("gamesButtonID").onclick = function () {
+          location.href = "index-test.html";
+      };
+      document.getElementById("proxyButtonID").onclick = function () {
+          location.href = "web.html";
+      };
+      document.getElementById("settingsButtonID").onclick = function () {
+          location.href = "settings.html";
+      };
+      document.getElementById("infoButtonID").onclick = function () {
+          location.href = "info.html";
+      };
+    </script>
+</body></html>
