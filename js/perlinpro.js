@@ -62,8 +62,8 @@ function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  lowResCanvas.width = Math.floor(canvas.width / WaveQuality));
-  lowResCanvas.height = Math.floor(canvas.height / WaveQuality));
+  lowResCanvas.width = Math.floor(canvas.width / WaveQuality);
+  lowResCanvas.height = Math.floor(canvas.height / WaveQuality);
 }
 
 // resize function
